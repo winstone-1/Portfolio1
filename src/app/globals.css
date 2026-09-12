@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0b1f14;
+  --foreground: #ecfdf5;
+  --muted: #a7f3d0;
+  --accent: #34d399;
+  --accent-strong: #10b981;
+  --accent-lime: #a3e635;
+  --card: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-hover: rgba(255, 255, 255, 0.08);
+  --surface: #11281c;
+  --surface-2: #143320;
+  --border-subtle: rgba(167, 243, 208, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-lime: var(--accent-lime);
+  --color-card: var(--card);
+  --color-border-subtle: var(--border-subtle);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Subtle noise texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+}
+
+/* Glassmorphism helper */
+.glass {
+  background: var(--card);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--card-border);
+}
+
+.glass-hover:hover {
+  background: var(--card-hover);
+  border-color: rgba(167, 243, 208, 0.18);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1f14;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e3a2a;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #24573c;
+}
+
+::selection {
+  background: rgba(52, 211, 153, 0.3);
+  color: #ecfdf5;
+}

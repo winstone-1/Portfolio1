@@ -1,0 +1,222 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ChevronDown,
+  ShoppingBag,
+  Shield,
+  ExternalLink,
+  Check,
+  Users,
+  CreditCard,
+  Database,
+  Cpu,
+  MessageSquare,
+} from "lucide-react";
+import { Reveal, SectionShell } from "./Section";
+
+const projects = [
+  {
+    id: "perfect-pick",
+    title: "Perfect Pick",
+    subtitle: "Production e-commerce for a family retail store",
+    status: "Live — Production",
+    statusTone: "emerald" as const,
+    icon: ShoppingBag,
+    problem:
+      "A family retail store needed to move beyond manual sales and WhatsApp orders — handling per-variant inventory, authenticated checkout, and mobile money without losing trust.",
+    highlights: [
+      "M-Pesa STK Push via Paystack for seamless mobile checkout",
+      "Firebase Auth with Google Sign-In + role gates (admin / manager / customer)",
+      "Per-variant inventory tracking and admin dashboard",
+      "Cloudinary for resilient product media",
+    ],
+    stack: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB Atlas", "Firebase", "Cloudinary", "Paystack"],
+    outcome: "Live and serving real customers — orders, payments, and inventory managed end-to-end.",
+    meta: [
+      { icon: CreditCard, label: "M-Pesa STK Push" },
+      { icon: Users, label: "Admin & Manager roles" },
+      { icon: Database, label: "Variant-level inventory" },
+    ],
+  },
+  {
+    id: "amakaziwatch",
+    title: "AmakaziWatch",
+    subtitle: "Kenya's first crowdsourced GBV awareness & reporting platform",
+    status: "Capstone — In build",
+    statusTone: "amber" as const,
+    icon: Shield,
+    problem:
+      "Gender-based violence reporting in Kenya is fragmented and hard to access. Survivors need low-friction, private channels — and communities need credible, crowdsourced awareness.",
+    highlights: [
+      "5-role RBAC (survivor, responder, moderator, analyst, admin) with audited access",
+      "AI intelligence module — Groq / LLaMA 3.3 70B for triage and insight",
+      "Multi-channel reporting: SMS, USSD & WhatsApp via Africa's Talking",
+      "Secure, privacy-first reporting flow with escalation paths",
+    ],
+    stack: [
+      "Django 5",
+      "Django REST Framework",
+      "PostgreSQL",
+      "SimpleJWT",
+      "Groq API",
+      "LLaMA 3.3 70B",
+      "Africa's Talking",
+      "Paystack",
+      "Cloudinary",
+      "Redis",
+    ],
+    outcome:
+      "Built as a DRF capstone — first proof point for Sentari's civic safety thesis. Designed to scale beyond a single issue area.",
+    meta: [
+      { icon: Shield, label: "5-role RBAC" },
+      { icon: Cpu, label: "Groq / LLaMA 3.3 70B" },
+      { icon: MessageSquare, label: "SMS / USSD / WhatsApp" },
+    ],
+  },
+];
+
+function StatusBadge({ tone, children }: { tone: "emerald" | "amber"; children: React.ReactNode }) {
+  const cls =
+    tone === "emerald"
+      ? "bg-emerald-400/15 text-emerald-300 border-emerald-400/20"
+      : "bg-amber-400/15 text-amber-300 border-amber-400/20";
+  return (
+    <span className={`inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-medium ${cls}`}>
+      {children}
+    </span>
+  );
+}
+
+export default function Projects() {
+  const [expanded, setExpanded] = useState<string | null>(null);
+
+  return (
+    <SectionShell
+      id="projects"
+      eyebrow="Selected work"
+      title="Projects"
+      description="Two case studies that show the range — production commerce and civic systems. Each card expands for the full breakdown."
+    >
+      <div className="grid gap-6 lg:grid-cols-2">
+        {projects.map((p, idx) => (
+          <Reveal key={p.id} delay={idx * 0.08}>
+            <motion.article
+              whileHover={{ y: -4 }}
+              transition={{ type: "spring", stiffness: 380, damping: 24 }}
+              className="group flex h-full flex-col overflow-hidden rounded-3xl glass glass-hover"
+            >
+              <div className="p-6 sm:p-7">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/[0.06] border border-white/[0.06] text-white">
+                    <p.icon size={20} className="text-emerald-300" />
+                  </div>
+                  <StatusBadge tone={p.statusTone}>{p.status}</StatusBadge>
+                </div>
+
+                <h3 className="mt-5 text-xl font-bold tracking-tight text-white">{p.title}</h3>
+                <p className="mt-1 text-sm font-medium text-emerald-200/70">{p.subtitle}</p>
+
+                <p className="mt-4 text-sm leading-6 text-white/60">{p.problem}</p>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {p.meta.map((m) => (
+                    <span
+                      key={m.label}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.06] bg-white/[0.04] px-2.5 py-1 text-xs text-white/60"
+                    >
+                      <m.icon size={12} /> {m.label}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-6">
+                  <button
+                    onClick={() => setExpanded((v) => (v === p.id ? null : p.id))}
+                    aria-expanded={expanded === p.id}
+                    className="inline-flex w-full items-center justify-between rounded-2xl border border-white/[0.06] bg-white/[0.03] px-4 py-3 text-sm font-medium text-white transition hover:bg-white/[0.06]"
+                  >
+                    <span>{expanded === p.id ? "Hide details" : "View details"}</span>
+                    <motion.span animate={{ rotate: expanded === p.id ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                      <ChevronDown size={16} className="text-white/50" />
+                    </motion.span>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {expanded === p.id && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pt-5">
+                          <p className="text-xs font-semibold uppercase tracking-widest text-white/35">What was built</p>
+                          <ul className="mt-3 space-y-2.5">
+                            {p.highlights.map((h) => (
+                              <li key={h} className="flex gap-2.5 text-sm leading-6 text-white/70">
+                                <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-400/15">
+                                  <Check size={12} className="text-emerald-300" />
+                                </span>
+                                {h}
+                              </li>
+                            ))}
+                          </ul>
+
+                          <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-white/35">Stack</p>
+                          <div className="mt-3 flex flex-wrap gap-1.5">
+                            {p.stack.map((s) => (
+                              <span
+                                key={s}
+                                className="rounded-full border border-white/[0.06] bg-white/[0.04] px-2.5 py-1 text-xs text-white/60"
+                              >
+                                {s}
+                              </span>
+                            ))}
+                          </div>
+
+                          <div className="mt-5 rounded-2xl border border-emerald-400/10 bg-emerald-400/[0.06] px-4 py-3">
+                            <p className="text-xs font-semibold uppercase tracking-widest text-emerald-300/70">Outcome</p>
+                            <p className="mt-1.5 text-sm leading-6 text-white/70">{p.outcome}</p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Stack preview when collapsed */}
+                {expanded !== p.id && (
+                  <div className="mt-5 flex flex-wrap gap-1.5">
+                    {p.stack.slice(0, 5).map((s) => (
+                      <span
+                        key={s}
+                        className="rounded-full border border-white/[0.06] bg-white/[0.04] px-2.5 py-1 text-xs text-white/50"
+                      >
+                        {s}
+                      </span>
+                    ))}
+                    {p.stack.length > 5 && (
+                      <span className="rounded-full bg-white/[0.06] px-2.5 py-1 text-xs text-white/40">
+                        +{p.stack.length - 5} more
+                      </span>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              <div className="mt-auto flex items-center justify-between border-t border-white/[0.06] px-6 py-4 text-xs text-white/30 sm:px-7">
+                <span className="inline-flex items-center gap-1.5">
+                  <ExternalLink size={12} /> Case study
+                </span>
+                <span className="text-white/20">Hover to lift</span>
+              </div>
+            </motion.article>
+          </Reveal>
+        ))}
+      </div>
+    </SectionShell>
+  );
+}
