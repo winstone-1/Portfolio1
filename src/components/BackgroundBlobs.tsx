@@ -30,6 +30,12 @@ export default function BackgroundBlobs() {
         animate={blobAnim ? { x: [0, 12, 0], y: [0, -8, 0] } : undefined}
         transition={blobAnim ? { duration: 28, repeat: Infinity, ease: "easeInOut" } : undefined}
       />
+      <motion.div
+        className="absolute top-[56%] left-[-6%] h-[380px] w-[420px] rounded-full bg-[var(--blob-5)] blur-[45px]"
+        style={{ willChange: "transform", transform: "translateZ(0)" }}
+        animate={blobAnim ? { x: [0, 10, 0], y: [0, -10, 0] } : undefined}
+        transition={blobAnim ? { duration: 22, repeat: Infinity, ease: "easeInOut" } : undefined}
+      />
       {/* Vignette */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/10 dark:to-black/20" />
       {/* Thin grid accent */}
