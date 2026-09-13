@@ -1,44 +1,29 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const NAV = [
-  { label: "Home", href: "#home" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Sentari", href: "#sentari" },
-  { label: "About", href: "#about" },
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
+  { label: "Skills", href: "/skills" },
+  { label: "Sentari", href: "/sentari" },
+  { label: "About", href: "/about" },
 ] as const;
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState("home");
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id);
-        });
-      },
-      { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
-    );
-    NAV.forEach(({ href }) => {
-      const id = href.slice(1);
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
   }, []);
 
   // lock scroll when mobile menu open
@@ -49,6 +34,14 @@ export default function Header() {
     };
   }, [open]);
 
+  // close mobile menu on route change
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
+
   return (
     <header
       className={`sticky top-0 z-40 w-full border-b transition-colors ${
@@ -58,8 +51,8 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex h-[64px] max-w-6xl items-center justify-between px-6 lg:px-8">
-        <a
-          href="#home"
+        <Link
+          href="/"
           className="flex items-center gap-2.5 text-[15px] font-semibold tracking-tight"
         >
           <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-400 text-[13px] font-bold text-[#0B1F14]">
@@ -69,32 +62,32 @@ export default function Header() {
           <span className="hidden text-xs font-normal text-white/40 sm:inline">
             / Software Engineer
           </span>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-1 md:flex">
           {NAV.map((item) => {
-            const isActive = active === item.href.slice(1);
+            const active = isActive(item.href);
             return (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 className={`rounded-full px-3.5 py-1.5 text-sm transition-colors ${
-                  isActive
+                  active
                     ? "bg-white/[0.08] text-white"
                     : "text-white/60 hover:bg-white/[0.06] hover:text-white"
                 }`}
               >
                 {item.label}
-              </a>
+              </Link>
             );
           })}
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="ml-2 rounded-full bg-emerald-400 px-5 py-2 text-sm font-semibold text-[#0B1F14] transition hover:bg-emerald-300"
           >
             Contact
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile toggle */}
@@ -120,22 +113,24 @@ export default function Header() {
           >
             <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-6">
               {NAV.map((item) => (
-                <a
+                <Link
                   key={item.href}
                   href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 text-[15px] font-medium text-white/80 hover:bg-white/[0.06] hover:text-white"
+                  className={`rounded-xl px-4 py-3 text-[15px] font-medium ${
+                    isActive(item.href)
+                      ? "bg-white/[0.08] text-white"
+                      : "text-white/80 hover:bg-white/[0.06] hover:text-white"
+                  }`}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
-              <a
-                href="#contact"
-                onClick={() => setOpen(false)}
+              <Link
+                href="/contact"
                 className="mt-2 rounded-xl bg-emerald-400 px-4 py-3 text-center text-sm font-semibold text-[#0B1F14]"
               >
                 Get in touch
-              </a>
+              </Link>
             </nav>
           </motion.div>
         )}

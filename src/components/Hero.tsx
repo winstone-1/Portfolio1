@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Mail, MapPin } from "lucide-react";
 
@@ -55,18 +56,18 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.24 }}
               className="mt-8 flex flex-wrap gap-3"
             >
-              <a
-                href="#projects"
+              <Link
+                href="/projects"
                 className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-[#0B1F14] transition hover:bg-emerald-300"
               >
                 View Projects <ArrowRight size={16} />
-              </a>
-              <a
-                href="#contact"
+              </Link>
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-6 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/[0.10]"
               >
                 <Mail size={16} /> Contact
-              </a>
+              </Link>
             </motion.div>
 
             <motion.div
@@ -139,10 +140,10 @@ export default function Hero() {
                     <p className="text-sm font-semibold text-white truncate">
                       AmakaziWatch
                     </p>
-                    <p className="text-xs text-white/50">Capstone · Civic safety</p>
+                    <p className="text-xs text-white/50">Civic safety · Live</p>
                   </div>
-                  <span className="ml-auto rounded-full bg-amber-400/15 px-2.5 py-1 text-[11px] font-medium text-amber-300">
-                    In build
+                  <span className="ml-auto rounded-full bg-emerald-400/15 px-2.5 py-1 text-[11px] font-medium text-emerald-300">
+                    Live
                   </span>
                 </div>
               </div>

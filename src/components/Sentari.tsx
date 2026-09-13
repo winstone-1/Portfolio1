@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Lightbulb, Hammer, ArrowRight } from "lucide-react";
 import { Reveal } from "./Section";
@@ -33,12 +34,12 @@ export default function Sentari() {
                 </p>
 
                 <div className="mt-7 flex flex-wrap gap-3">
-                  <a
-                    href="#projects"
+                  <Link
+                    href="/projects"
                     className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#0B1F14] hover:bg-white/90 transition"
                   >
                     See AmakaziWatch <ArrowRight size={14} />
-                  </a>
+                  </Link>
                   <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white/70">
                     <Hammer size={14} /> Building in public
                   </span>

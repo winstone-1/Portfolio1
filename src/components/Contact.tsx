@@ -157,11 +157,10 @@ export default function Contact() {
               </li>
             </ul>
 
-            <div className="mt-6 rounded-2xl border border-emerald-400/15 bg-emerald-400/[0.06] px-4 py-4">
-              <p className="text-xs font-semibold uppercase tracking-widest text-emerald-300/70">Linktree</p>
+            <div className="mt-6 rounded-2xl border border-white/[0.06] bg-white/[0.03] px-4 py-4">
+              <p className="text-xs font-semibold uppercase tracking-widest text-white/30">Find me elsewhere</p>
               <p className="mt-2 text-sm leading-6 text-white/60">
-                All links mirror the existing Linktree — GitHub, LinkedIn, X, WhatsApp, and email.
-                One place, no clutter.
+                GitHub, LinkedIn, X, Instagram, WhatsApp, and email — all direct links, no third-party hub.
               </p>
             </div>
           </div>
