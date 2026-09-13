@@ -2,6 +2,7 @@
 
 import { Mail, MessageCircle } from "lucide-react";
 import { Reveal, SectionShell } from "./Section";
+import { getWhatsAppLink } from "@/lib/site";
 
 function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -24,6 +25,15 @@ function XIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" {...props} aria-hidden>
+      <rect x="2" y="2" width="20" height="20" rx="5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
 
 const links = [
   {
@@ -35,29 +45,36 @@ const links = [
   },
   {
     label: "LinkedIn",
-    handle: "LinkedIn",
-    href: "https://linkedin.com/in/winstone-1",
+    handle: "linkedin.com/in/winstone-mwangi",
+    href: "https://linkedin.com/in/winstone-mwangi",
     icon: LinkedinIcon,
     isBrand: true as const,
   },
   {
     label: "X",
-    handle: "@winstone",
-    href: "https://x.com/winstone_1",
+    handle: "x.com/winstone_dev",
+    href: "https://x.com/winstone_dev",
     icon: XIcon,
+    isBrand: true as const,
+  },
+  {
+    label: "Instagram",
+    handle: "instagram.com/spear.stone_",
+    href: "https://instagram.com/spear.stone_",
+    icon: InstagramIcon,
     isBrand: true as const,
   },
   {
     label: "WhatsApp",
     handle: "Chat on WhatsApp",
-    href: "https://wa.me/254700000000",
+    href: getWhatsAppLink(),
     icon: MessageCircle,
     isBrand: false as const,
   },
   {
     label: "Email",
-    handle: "hello@winstone.dev",
-    href: "mailto:hello@winstone.dev",
+    handle: "winstonemuna404@gmail.com",
+    href: "mailto:winstonemuna404@gmail.com",
     icon: Mail,
     isBrand: false as const,
   },
@@ -105,7 +122,7 @@ export default function Contact() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href="mailto:hello@winstone.dev"
+                href="mailto:winstonemuna404@gmail.com"
                 className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-[#0B1F14] hover:bg-emerald-300 transition"
               >
                 <Mail size={16} /> Email me

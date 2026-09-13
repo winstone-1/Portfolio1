@@ -13,6 +13,9 @@ import {
   Database,
   Cpu,
   MessageSquare,
+  GraduationCap,
+  BookOpen,
+  WifiOff,
 } from "lucide-react";
 import { Reveal, SectionShell } from "./Section";
 
@@ -24,6 +27,7 @@ const projects = [
     status: "Live — Production",
     statusTone: "emerald" as const,
     icon: ShoppingBag,
+    href: undefined as string | undefined,
     problem:
       "A family retail store needed to move beyond manual sales and WhatsApp orders — handling per-variant inventory, authenticated checkout, and mobile money without losing trust.",
     highlights: [
@@ -44,9 +48,10 @@ const projects = [
     id: "amakaziwatch",
     title: "AmakaziWatch",
     subtitle: "Kenya's first crowdsourced GBV awareness & reporting platform",
-    status: "Capstone — In build",
-    statusTone: "amber" as const,
+    status: "Live",
+    statusTone: "emerald" as const,
     icon: Shield,
+    href: "https://amakazi-watch.pages.dev/",
     problem:
       "Gender-based violence reporting in Kenya is fragmented and hard to access. Survivors need low-friction, private channels — and communities need credible, crowdsourced awareness.",
     highlights: [
@@ -68,11 +73,46 @@ const projects = [
       "Redis",
     ],
     outcome:
-      "Built as a DRF capstone — first proof point for Sentari's civic safety thesis. Designed to scale beyond a single issue area.",
+      "Live at amakazi-watch.pages.dev — first proof point for Sentari's civic safety thesis. Designed to scale beyond a single issue area.",
     meta: [
       { icon: Shield, label: "5-role RBAC" },
       { icon: Cpu, label: "Groq / LLaMA 3.3 70B" },
       { icon: MessageSquare, label: "SMS / USSD / WhatsApp" },
+    ],
+  },
+  {
+    id: "elimu-mwalimu",
+    title: "Elimu Mwalimu (Funza)",
+    subtitle: "Offline-first teacher preparation for Grade 10",
+    status: "Live",
+    statusTone: "emerald" as const,
+    icon: GraduationCap,
+    href: "https://funza-peach.vercel.app/",
+    problem:
+      "Teachers need to turn a curriculum strand into a classroom-ready lesson quickly — with plain-language understanding, key concepts, a lesson guide, and quick formative checks, even offline.",
+    highlights: [
+      "Strand overview → ready-to-teach workflow: plain-language explainer, key concepts, lesson guide, formative-assessment checks",
+      "Current pack: Grade 10 Biology — Cell Biology",
+      "Built in a Claude buildathon (Sept 2026): Haiku for execution/content generation, Sonnet for brainstorming",
+      "Offline-first PWA — service worker + IndexedDB caching for low-connectivity classrooms",
+    ],
+    stack: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "React Router",
+      "Tailwind CSS 4",
+      "shadcn-style components",
+      "Lucide icons",
+      "PWA",
+      "IndexedDB",
+      "Supabase",
+    ],
+    outcome: "Live at funza-peach.vercel.app — teacher-tested flow from strand overview to lesson-ready in minutes.",
+    meta: [
+      { icon: BookOpen, label: "Grade 10 Biology" },
+      { icon: WifiOff, label: "Offline-first PWA" },
+      { icon: GraduationCap, label: "Claude buildathon" },
     ],
   },
 ];
@@ -97,9 +137,9 @@ export default function Projects() {
       id="projects"
       eyebrow="Selected work"
       title="Projects"
-      description="Two case studies that show the range — production commerce and civic systems. Each card expands for the full breakdown."
+      description="Three case studies — production commerce, civic safety, and curriculum tools. Each card expands for the full breakdown."
     >
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {projects.map((p, idx) => (
           <Reveal key={p.id} delay={idx * 0.08}>
             <motion.article
@@ -208,9 +248,20 @@ export default function Projects() {
               </div>
 
               <div className="mt-auto flex items-center justify-between border-t border-white/[0.06] px-6 py-4 text-xs text-white/30 sm:px-7">
-                <span className="inline-flex items-center gap-1.5">
-                  <ExternalLink size={12} /> Case study
-                </span>
+                {p.href ? (
+                  <a
+                    href={p.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 hover:text-white transition"
+                  >
+                    <ExternalLink size={12} /> Live — {new URL(p.href).host}
+                  </a>
+                ) : (
+                  <span className="inline-flex items-center gap-1.5">
+                    <ExternalLink size={12} /> Case study
+                  </span>
+                )}
                 <span className="text-white/20">Hover to lift</span>
               </div>
             </motion.article>

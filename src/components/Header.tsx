@@ -10,7 +10,6 @@ const NAV = [
   { label: "Skills", href: "#skills" },
   { label: "Sentari", href: "#sentari" },
   { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
 ] as const;
 
 export default function Header() {
