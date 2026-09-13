@@ -1,39 +1,40 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function BackgroundBlobs() {
+  const shouldReduce = useReducedMotion();
+  const blobAnim = shouldReduce ? undefined : { x: [0, 16, 0] as number[], y: [0, 10, 0] as number[] };
+
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#0B1F14]"
+      className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[var(--background)]"
     >
-      {/* Gradient blobs */}
+      {/* Gradient blobs — reduced blur + area for GPU cost, transform-only animation, respects reduced motion */}
       <motion.div
-        className="absolute -top-32 -left-32 h-[520px] w-[680px] rounded-full bg-emerald-900/30 blur-[90px]"
-        animate={{ x: [0, 18, 0], y: [0, 14, 0] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -top-32 -left-32 h-[440px] w-[560px] rounded-full bg-[var(--blob-1)] blur-[60px]"
+        style={{ willChange: "transform", transform: "translateZ(0)" }}
+        animate={blobAnim ? { x: [0, 16, 0], y: [0, 10, 0] } : undefined}
+        transition={blobAnim ? { duration: 20, repeat: Infinity, ease: "easeInOut" } : undefined}
       />
       <motion.div
-        className="absolute top-[18%] -right-24 h-[560px] w-[560px] rounded-full bg-emerald-800/20 blur-[100px]"
-        animate={{ x: [0, -20, 0], y: [0, 18, 0] }}
-        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[18%] -right-24 h-[460px] w-[460px] rounded-full bg-[var(--blob-2)] blur-[60px]"
+        style={{ willChange: "transform", transform: "translateZ(0)" }}
+        animate={blobAnim ? { x: [0, -14, 0], y: [0, 12, 0] } : undefined}
+        transition={blobAnim ? { duration: 24, repeat: Infinity, ease: "easeInOut" } : undefined}
       />
       <motion.div
-        className="absolute bottom-[-8%] left-[28%] h-[640px] w-[760px] rounded-full bg-lime-900/10 blur-[110px]"
-        animate={{ x: [0, 16, 0], y: [0, -12, 0] }}
-        transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute top-[58%] left-[-6%] h-[420px] w-[520px] rounded-full bg-teal-900/20 blur-[80px]"
-        animate={{ x: [0, 12, 0], y: [0, -10, 0] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-[-8%] left-[28%] h-[520px] w-[620px] rounded-full bg-[var(--blob-3)] blur-[50px]"
+        style={{ willChange: "transform", transform: "translateZ(0)" }}
+        animate={blobAnim ? { x: [0, 12, 0], y: [0, -8, 0] } : undefined}
+        transition={blobAnim ? { duration: 28, repeat: Infinity, ease: "easeInOut" } : undefined}
       />
       {/* Vignette */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/10 dark:to-black/20" />
       {/* Thin grid accent */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.03] motion-reduce:hidden"
         style={{
           backgroundImage:
             "linear-gradient(rgba(167,243,208,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(167,243,208,0.4) 1px, transparent 1px)",

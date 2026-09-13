@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const NAV = [
   { label: "Home", href: "/" },
@@ -46,7 +47,7 @@ export default function Header() {
     <header
       className={`sticky top-0 z-40 w-full border-b transition-colors ${
         scrolled
-          ? "border-white/[0.06] bg-[#0B1F14]/70 backdrop-blur-xl"
+          ? "border-[var(--card-border)] bg-background/70 backdrop-blur-xl"
           : "border-transparent bg-transparent"
       }`}
     >
@@ -64,41 +65,50 @@ export default function Header() {
           </span>
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 md:flex">
-          {NAV.map((item) => {
-            const active = isActive(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`rounded-full px-3.5 py-1.5 text-sm transition-colors ${
-                  active
-                    ? "bg-white/[0.08] text-white"
-                    : "text-white/60 hover:bg-white/[0.06] hover:text-white"
-                }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-          <Link
-            href="/contact"
-            className="ml-2 rounded-full bg-emerald-400 px-5 py-2 text-sm font-semibold text-[#0B1F14] transition hover:bg-emerald-300"
-          >
-            Contact
-          </Link>
-        </nav>
+        <div className="flex items-center gap-2">
+          {/* Desktop nav */}
+          <nav className="hidden items-center gap-1 md:flex">
+            {NAV.map((item) => {
+              const active = isActive(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`rounded-full px-3.5 py-1.5 text-sm transition-colors ${
+                    active
+                      ? "bg-white/[0.08] text-white"
+                      : "text-white/60 hover:bg-white/[0.06] hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+            <Link
+              href="/contact"
+              className="ml-2 rounded-full bg-emerald-400 px-5 py-2 text-sm font-semibold text-[#0B1F14] transition hover:bg-emerald-300"
+            >
+              Contact
+            </Link>
+          </nav>
 
-        {/* Mobile toggle */}
-        <button
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] text-white backdrop-blur md:hidden"
-        >
-          {open ? <X size={18} /> : <Menu size={18} />}
-        </button>
+          <div className="hidden md:flex">
+            <ThemeToggle />
+          </div>
+
+          {/* Mobile actions */}
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] text-white backdrop-blur"
+            >
+              {open ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Mobile menu */}

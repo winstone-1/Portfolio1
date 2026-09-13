@@ -38,6 +38,8 @@ export const metadata: Metadata = {
   },
 };
 
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();`;
+
 export default function RootLayout({
   children,
 }: {
@@ -46,9 +48,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col relative isolate overflow-x-hidden bg-[#0B1F14] text-[#ECFDF5]">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className="min-h-full flex flex-col relative isolate overflow-x-hidden bg-background text-foreground">
         <BackgroundBlobs />
         <Header />
         <div className="flex-1 flex flex-col relative z-10">{children}</div>
