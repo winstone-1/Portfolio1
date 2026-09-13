@@ -31,7 +31,7 @@ export default function Hero() {
               className="mt-6 text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-[64px] lg:leading-[0.95]"
             >
               Winstone
-              <span className="block bg-gradient-to-r from-emerald-300 via-emerald-400 to-lime-300 bg-clip-text text-transparent">
+              <span className="block text-gradient-hero">
                 Software Engineer
               </span>
               <span className="block text-3xl font-semibold tracking-tight text-white/90 sm:text-4xl">
@@ -58,7 +58,7 @@ export default function Hero() {
             >
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-[#0B1F14] transition hover:bg-emerald-300"
+                className="inline-flex items-center gap-2 rounded-full btn-gradient px-6 py-3 text-sm font-semibold shadow-lg shadow-[rgba(36,0,200,0.25)] transition hover:brightness-110"
               >
                 View Projects <ArrowRight size={16} />
               </Link>

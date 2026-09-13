@@ -52,16 +52,15 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex h-[64px] max-w-6xl items-center justify-between px-6 lg:px-8">
-        <Link
-          href="/"
-          className="flex items-center gap-2.5 text-[15px] font-semibold tracking-tight"
-        >
-          <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-400 text-[13px] font-bold text-[#0B1F14]">
+        <Link href="/" className="flex items-center gap-2.5">
+          <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-[#8B2FE0] via-[#2400C8] to-[#1E7A1E] text-[13px] font-bold text-white shadow-sm">
             W
           </span>
-          <span className="text-[#ECFDF5]">Winstone</span>
-          <span className="hidden text-xs font-normal text-white/40 sm:inline">
-            / Software Engineer
+          <span className="flex flex-col leading-none">
+            <span className="text-[15px] font-bold tracking-tight text-foreground">Winstone</span>
+            <span className="hidden text-[11px] font-medium tracking-wide text-foreground/45 sm:block">
+              Software Engineer
+            </span>
           </span>
         </Link>
 
@@ -74,10 +73,10 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`rounded-full px-3.5 py-1.5 text-sm transition-colors ${
+                  className={`rounded-full px-3.5 py-1.5 text-sm transition-colors border ${
                     active
-                      ? "bg-white/[0.08] text-white"
-                      : "text-white/60 hover:bg-white/[0.06] hover:text-white"
+                      ? "bg-[var(--accent)]/12 text-foreground border-[var(--accent)]/20"
+                      : "border-transparent text-white/60 hover:bg-white/[0.06] hover:text-white"
                   }`}
                 >
                   {item.label}
@@ -86,7 +85,7 @@ export default function Header() {
             })}
             <Link
               href="/contact"
-              className="ml-2 rounded-full bg-emerald-400 px-5 py-2 text-sm font-semibold text-[#0B1F14] transition hover:bg-emerald-300"
+              className="ml-2 rounded-full btn-gradient px-5 py-2 text-sm font-semibold shadow-md shadow-[rgba(36,0,200,0.22)] transition hover:brightness-110"
             >
               Contact
             </Link>
@@ -126,10 +125,10 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`rounded-xl px-4 py-3 text-[15px] font-medium ${
+                  className={`rounded-xl px-4 py-3 text-[15px] font-medium border ${
                     isActive(item.href)
-                      ? "bg-white/[0.08] text-white"
-                      : "text-white/80 hover:bg-white/[0.06] hover:text-white"
+                      ? "bg-[var(--accent)]/10 text-foreground border-[var(--accent)]/15"
+                      : "border-transparent text-white/80 hover:bg-white/[0.06] hover:text-white"
                   }`}
                 >
                   {item.label}
@@ -137,7 +136,7 @@ export default function Header() {
               ))}
               <Link
                 href="/contact"
-                className="mt-2 rounded-xl bg-emerald-400 px-4 py-3 text-center text-sm font-semibold text-[#0B1F14]"
+                className="mt-2 rounded-xl btn-gradient px-4 py-3 text-center text-sm font-semibold shadow-md"
               >
                 Get in touch
               </Link>
