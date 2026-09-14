@@ -53,7 +53,7 @@ export default function Header() {
     >
       <div className="mx-auto flex h-[64px] max-w-6xl items-center justify-between px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2.5">
-          <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-[#1B1464] via-[#6B1F3D] to-[#0D4A0D] text-[13px] font-bold text-white shadow-sm">
+          <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-foreground text-[13px] font-bold text-background shadow-sm">
             W
           </span>
           <span className="flex flex-col leading-none">

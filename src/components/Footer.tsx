@@ -53,14 +53,14 @@ export default function Footer() {
 
   return (
     <footer className="relative z-10 mt-8 border-t border-[var(--card-border)] bg-[var(--background)]/80 backdrop-blur-sm">
-      {/* gradient top accent line — 7-stop family */}
-      <div className="h-px w-full bg-gradient-to-r from-[#1B1464] via-[#6B1F3D] via-[#E8541E] via-[#C9A57A] via-[#8FD1C7] via-[#5CB82E] to-[#0D4A0D] opacity-25" aria-hidden />
+      {/* gradient top accent line — off-white → navy */}
+      <div className="h-px w-full bg-gradient-to-r from-[#EEEEEC] to-[#050B3A] opacity-25" aria-hidden />
       <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8">
         <div className="grid gap-8 md:grid-cols-[1.4fr_0.8fr_0.9fr]">
           {/* Brand + tagline */}
           <div>
             <Link href="/" className="inline-flex items-center gap-2.5">
-              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-[#1B1464] via-[#6B1F3D] to-[#0D4A0D] text-xs font-bold text-white">
+              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-foreground text-xs font-bold text-background">
                 W
               </span>
               <span className="text-sm font-semibold text-foreground">Winstone</span>

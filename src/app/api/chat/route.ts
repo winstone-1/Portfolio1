@@ -78,7 +78,7 @@ export async function POST(req: NextRequest) {
     content: String(m.content).slice(0, 2000),
   }));
 
-  const model = process.env.GROQ_MODEL || "llama-3.3-70b-versatile";
+  const model = process.env.GROQ_MODEL || "qwen/qwen3.6-27b";
 
   try {
     const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
