@@ -56,7 +56,7 @@ const projects = [
       "Gender-based violence reporting in Kenya is fragmented and hard to access. Survivors need low-friction, private channels — and communities need credible, crowdsourced awareness.",
     highlights: [
       "5-role RBAC (survivor, responder, moderator, analyst, admin) with audited access",
-      "AI intelligence module — Groq / LLaMA 3.3 70B for triage and insight",
+      "AI intelligence module for triage and insight",
       "Multi-channel reporting: SMS, USSD & WhatsApp via Africa's Talking",
       "Secure, privacy-first reporting flow with escalation paths",
     ],
@@ -65,8 +65,8 @@ const projects = [
       "Django REST Framework",
       "PostgreSQL",
       "SimpleJWT",
-      "Groq API",
-      "LLaMA 3.3 70B",
+"AI Model Integration",
+       "Language Model API",
       "Africa's Talking",
       "Paystack",
       "Cloudinary",
@@ -76,7 +76,7 @@ const projects = [
       "Live at amakazi-watch.pages.dev — first proof point for Sentari's civic safety thesis. Designed to scale beyond a single issue area.",
     meta: [
       { icon: Shield, label: "5-role RBAC" },
-      { icon: Cpu, label: "Groq / LLaMA 3.3 70B" },
+      { icon: Cpu, label: "AI Integration" },
       { icon: MessageSquare, label: "SMS / USSD / WhatsApp" },
     ],
   },
@@ -120,8 +120,8 @@ const projects = [
 function StatusBadge({ tone, children }: { tone: "emerald" | "amber"; children: React.ReactNode }) {
   const cls =
     tone === "emerald"
-      ? "bg-emerald-400/15 text-emerald-300 border-emerald-400/20"
-      : "bg-amber-400/15 text-amber-300 border-amber-400/20";
+       ? "bg-accent/15 text-accent border-accent/20"
+       : "bg-amber-400/15 text-amber-300 border-amber-400/20";
   return (
     <span className={`inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-medium ${cls}`}>
       {children}
@@ -150,13 +150,13 @@ export default function Projects() {
               <div className="p-6 sm:p-7">
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/[0.06] border border-white/[0.06] text-white">
-                    <p.icon size={20} className="text-emerald-300" />
+                     <p.icon size={20} className="text-accent" />
                   </div>
                   <StatusBadge tone={p.statusTone}>{p.status}</StatusBadge>
                 </div>
 
                 <h3 className="mt-5 text-xl font-bold tracking-tight text-white">{p.title}</h3>
-                <p className="mt-1 text-sm font-medium text-emerald-200/70">{p.subtitle}</p>
+                 <p className="mt-1 text-sm font-medium text-accent/70">{p.subtitle}</p>
 
                 <p className="mt-4 text-sm leading-6 text-white/60">{p.problem}</p>
 
@@ -197,8 +197,8 @@ export default function Projects() {
                           <ul className="mt-3 space-y-2.5">
                             {p.highlights.map((h) => (
                               <li key={h} className="flex gap-2.5 text-sm leading-6 text-white/70">
-                                <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-400/15">
-                                  <Check size={12} className="text-emerald-300" />
+                                 <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15">
+                                   <Check size={12} className="text-accent" />
                                 </span>
                                 {h}
                               </li>
@@ -217,8 +217,8 @@ export default function Projects() {
                             ))}
                           </div>
 
-                          <div className="mt-5 rounded-2xl border border-emerald-400/10 bg-emerald-400/[0.06] px-4 py-3">
-                            <p className="text-xs font-semibold uppercase tracking-widest text-emerald-300/70">Outcome</p>
+                           <div className="mt-5 rounded-2xl border border-accent/10 bg-accent/[0.06] px-4 py-3">
+                             <p className="text-xs font-semibold uppercase tracking-widest text-accent/70">Outcome</p>
                             <p className="mt-1.5 text-sm leading-6 text-white/70">{p.outcome}</p>
                           </div>
                         </div>

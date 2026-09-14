@@ -25,7 +25,7 @@ const groups = [
   {
     title: "AI / Integrations",
     icon: Cpu,
-    items: ["Groq API (LLaMA 3.3 70B)", "Africa's Talking (SMS/USSD)", "Paystack", "WhatsApp API"],
+    items: ["AI Model Integration", "Africa's Talking (SMS/USSD)", "Paystack", "WhatsApp API"],
     accent: "amber" as const,
   },
   {
@@ -58,9 +58,9 @@ export default function Skills() {
               }`}
             >
               <div className={g.wide ? "lg:w-[260px] lg:shrink-0" : ""}>
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/[0.06] bg-white/[0.04] text-emerald-300">
-                  <g.icon size={18} />
-                </div>
+                 <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/[0.06] bg-white/[0.04] text-accent">
+                   <g.icon size={18} />
+                 </div>
                 <h3 className="mt-4 text-sm font-bold tracking-tight text-white">{g.title}</h3>
                 {!g.wide && (
                   <p className="mt-1 text-xs leading-5 text-white/40">
@@ -82,7 +82,7 @@ export default function Skills() {
                   {g.items.map((item) => (
                     <span
                       key={item}
-                      className={`rounded-full border bg-white/[0.04] px-3 py-1.5 text-xs leading-none text-white/70 border-white/[0.06] group-hover:border-emerald-400/15 group-hover:bg-white/[0.06] transition-colors ${
+                       className={`rounded-full border bg-white/[0.04] px-3 py-1.5 text-xs leading-none text-white/70 border-white/[0.06] group-hover:border-accent/15 group-hover:bg-white/[0.06] transition-colors ${
                         g.wide ? "py-2 text-[13px]" : ""
                       }`}
                     >

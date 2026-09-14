@@ -106,11 +106,11 @@ export default function Contact() {
                     href={l.href}
                     target={l.href.startsWith("http") ? "_blank" : undefined}
                     rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="group flex items-center gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.03] px-4 py-3.5 transition hover:border-emerald-400/20 hover:bg-white/[0.06]"
-                  >
-                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/[0.06] border border-white/[0.06] text-white group-hover:bg-emerald-400/15 group-hover:text-emerald-300 transition-colors">
-                      <Icon className="h-4 w-4" />
-                    </span>
+                     className="group flex items-center gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.03] px-4 py-3.5 transition hover:border-accent/20 hover:bg-white/[0.06]"
+                   >
+                     <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/[0.06] border border-white/[0.06] text-white group-hover:bg-accent/15 group-hover:text-accent transition-colors">
+                       <Icon className="h-4 w-4" />
+                     </span>
                     <span className="min-w-0">
                       <span className="block text-sm font-semibold text-white">{l.label}</span>
                       <span className="block truncate text-xs text-white/40">{l.handle}</span>
@@ -121,10 +121,10 @@ export default function Contact() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href="mailto:winstonemuna404@gmail.com"
-                className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-[#0B1F14] hover:bg-emerald-300 transition"
-              >
+               <a
+                 href="mailto:winstonemuna404@gmail.com"
+                 className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white hover:bg-accent-hover transition"
+               >
                 <Mail size={16} /> Email me
               </a>
               <a
@@ -144,15 +144,15 @@ export default function Contact() {
             <p className="text-xs font-semibold uppercase tracking-widest text-white/30">What to expect</p>
             <ul className="mt-4 space-y-3 text-sm leading-6 text-white/60">
               <li className="flex gap-2.5">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
-                Reply within 24 hours — Nairobi time (EAT, UTC+3).
-              </li>
-              <li className="flex gap-2.5">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
-                Happy to jump on a call, or keep it async — your call.
-              </li>
-              <li className="flex gap-2.5">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                 Reply within 24 hours — Nairobi time (EAT, UTC+3).
+               </li>
+               <li className="flex gap-2.5">
+                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                 Happy to jump on a call, or keep it async — your call.
+               </li>
+               <li className="flex gap-2.5">
+                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                 Building in public — follow progress on GitHub and X.
               </li>
             </ul>

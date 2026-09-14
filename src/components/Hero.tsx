@@ -18,9 +18,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-200"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-medium text-accent"
+             >
+               <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
               Available for collaborations — Nairobi, Kenya
             </motion.div>
 
@@ -31,7 +31,7 @@ export default function Hero() {
               className="mt-6 text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-[64px] lg:leading-[0.95]"
             >
               Winstone
-              <span className="block text-gradient-hero">
+              <span className="block text-accent-word">
                 Software Engineer
               </span>
               <span className="block text-3xl font-semibold tracking-tight text-white/90 sm:text-4xl">
@@ -93,10 +93,10 @@ export default function Hero() {
           >
             <div className="glass rounded-3xl p-6 sm:p-7">
               <div className="flex items-center justify-between">
-                <p className="text-xs font-semibold uppercase tracking-widest text-emerald-300/70">
-                  At a glance
-                </p>
-                <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.6)]" />
+              <p className="text-xs font-semibold uppercase tracking-widest text-accent/70">
+                   At a glance
+                 </p>
+                 <span className="h-2 w-2 rounded-full bg-accent shadow-[0_0_12px_rgba(16,185,129,0.5)]" />
               </div>
 
               <div className="mt-6 grid grid-cols-3 gap-4">
@@ -119,40 +119,37 @@ export default function Hero() {
 
               <div className="mt-6 space-y-3">
                 <div className="flex items-center gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.02] px-4 py-3">
-                  <div className="h-9 w-9 rounded-xl bg-emerald-400/15 flex items-center justify-center text-emerald-300 text-xs font-bold">
-                    PP
-                  </div>
+                  <div className="h-9 w-9 rounded-xl bg-accent/15 flex items-center justify-center text-accent text-xs font-bold">
+                     PP
+                   </div>
                   <div className="min-w-0">
                     <p className="text-sm font-semibold text-white truncate">
                       Perfect Pick
                     </p>
                     <p className="text-xs text-white/50">Production · Retail commerce</p>
                   </div>
-                  <span className="ml-auto rounded-full bg-emerald-400/15 px-2.5 py-1 text-[11px] font-medium text-emerald-300">
-                    Live
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.02] px-4 py-3">
-                  <div className="h-9 w-9 rounded-xl bg-lime-400/15 flex items-center justify-center text-lime-300 text-xs font-bold">
-                    AW
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-sm font-semibold text-white truncate">
-                      AmakaziWatch
-                    </p>
-                    <p className="text-xs text-white/50">Civic safety · Live</p>
-                  </div>
-                  <span className="ml-auto rounded-full bg-emerald-400/15 px-2.5 py-1 text-[11px] font-medium text-emerald-300">
-                    Live
-                  </span>
-                </div>
-              </div>
+                   <span className="ml-auto rounded-full bg-accent/15 px-2.5 py-1 text-[11px] font-medium text-accent">
+                     Live
+                   </span>
+                 </div>
+                 <div className="flex items-center gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.02] px-4 py-3">
+                   <div className="h-9 w-9 rounded-xl bg-accent/15 flex items-center justify-center text-accent text-xs font-bold">
+                     AW
+                   </div>
+                   <div className="min-w-0">
+                     <p className="text-sm font-semibold text-white truncate">
+                       AmakaziWatch
+                     </p>
+                     <p className="text-xs text-white/50">Civic safety · Live</p>
+                   </div>
+                 </div>
+               </div>
 
-              <div className="mt-6 rounded-2xl bg-gradient-to-br from-emerald-500/15 via-emerald-400/10 to-lime-400/10 border border-emerald-400/15 p-4">
-                <p className="text-xs font-semibold tracking-widest text-emerald-200/70 uppercase">
-                  Thesis
-                </p>
-                <p className="mt-2 text-sm leading-6 text-white/80">
+               <div className="mt-6 rounded-2xl bg-accent/10 border border-accent/15 p-4">
+                 <p className="text-xs font-semibold tracking-widest text-accent/70 uppercase">
+                   Thesis
+                 </p>
+                 <p className="mt-2 text-sm leading-6 text-white/80">
                   Civic and community safety systems as durable infrastructure — starting with
                   AmakaziWatch and scaling through Sentari.
                 </p>
@@ -160,7 +157,7 @@ export default function Hero() {
             </div>
 
             {/* subtle outer glow */}
-            <div className="pointer-events-none absolute -inset-3 -z-10 rounded-[28px] bg-emerald-500/10 blur-2xl" />
+            <div className="pointer-events-none absolute -inset-3 -z-10 rounded-[28px] bg-accent/10 blur-2xl" />
           </motion.div>
         </div>
       </div>

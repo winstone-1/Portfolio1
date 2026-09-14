@@ -53,8 +53,8 @@ export default function Footer() {
 
   return (
     <footer className="relative z-10 mt-8 border-t border-[var(--card-border)] bg-[var(--background)]/80 backdrop-blur-sm">
-      {/* gradient top accent line — off-white → navy */}
-      <div className="h-px w-full bg-gradient-to-r from-[#EEEEEC] to-[#050B3A] opacity-25" aria-hidden />
+      {/* emerald accent top line */}
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-accent to-transparent opacity-20" aria-hidden />
       <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8">
         <div className="grid gap-8 md:grid-cols-[1.4fr_0.8fr_0.9fr]">
           {/* Brand + tagline */}

@@ -14,13 +14,13 @@ function getStoredTheme(): Theme | null {
 }
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const attr = document.documentElement.getAttribute("data-theme") as Theme | null;
     const stored = getStoredTheme();
-    const initial = stored ?? attr ?? "dark";
+    const initial = stored ?? attr ?? "light";
     setTheme(initial);
     setMounted(true);
   }, []);

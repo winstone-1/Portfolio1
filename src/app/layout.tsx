@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import BackgroundBlobs from "@/components/BackgroundBlobs";
 import Footer from "@/components/Footer";
-import ChatWidget from "@/components/ChatWidget";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,7 +37,7 @@ export const metadata: Metadata = {
   },
 };
 
-const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();`;
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t||'light')}catch(e){document.documentElement.setAttribute('data-theme','light')}})();`;
 
 export default function RootLayout({
   children,
@@ -59,7 +58,6 @@ export default function RootLayout({
         <Header />
         <div className="flex-1 flex flex-col relative z-10">{children}</div>
         <Footer />
-        <ChatWidget />
       </body>
     </html>
   );

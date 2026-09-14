@@ -48,7 +48,7 @@ export function SectionShell({
         <Reveal>
           <div className="max-w-2xl">
             {eyebrow && (
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300/80">
+               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent/80">
                 {eyebrow}
               </p>
             )}

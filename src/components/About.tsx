@@ -15,9 +15,9 @@ export default function About() {
         <Reveal className="lg:col-span-3">
           <div className="glass rounded-3xl p-7 sm:p-8">
             <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-400 text-[#0B1F14] font-bold text-sm">
-                W
-              </span>
+               <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-accent text-[#0B1F14] font-bold text-sm">
+                 W
+               </span>
               <div>
                 <p className="text-sm font-bold text-white">Winstone</p>
                 <p className="text-xs text-white/50">Software Engineer | Founder — Nairobi, Kenya</p>
@@ -63,23 +63,23 @@ export default function About() {
         <Reveal delay={0.08} className="lg:col-span-2">
           <div className="flex h-full flex-col gap-4">
             <div className="glass rounded-3xl p-6">
-              <p className="text-xs font-semibold uppercase tracking-widest text-emerald-300/60">
-                What I optimize for
-              </p>
-              <ul className="mt-4 space-y-3 text-sm leading-6 text-white/60">
-                <li className="flex gap-2.5">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
-                  Shipping — real users, real feedback, quickly.
-                </li>
-                <li className="flex gap-2.5">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
-                  Ownership — decisions that survive scale and scrutiny.
-                </li>
-                <li className="flex gap-2.5">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
-                  Usefulness — software that matters outside the demo.
-                </li>
-              </ul>
+               <p className="text-xs font-semibold uppercase tracking-widest text-accent/60">
+                 What I optimize for
+               </p>
+               <ul className="mt-4 space-y-3 text-sm leading-6 text-white/60">
+                 <li className="flex gap-2.5">
+                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                   Shipping — real users, real feedback, quickly.
+                 </li>
+                 <li className="flex gap-2.5">
+                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                   Ownership — decisions that survive scale and scrutiny.
+                 </li>
+                 <li className="flex gap-2.5">
+                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                   Usefulness — software that matters outside the demo.
+                 </li>
+               </ul>
             </div>
 
             <div className="glass rounded-3xl p-6">

@@ -19,12 +19,12 @@ export default function Sentari() {
     <section id="sentari" className="scroll-mt-20 py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <Reveal>
-          <div className="overflow-hidden rounded-3xl border border-emerald-400/15 bg-gradient-to-br from-emerald-500/[0.08] via-white/[0.04] to-lime-400/[0.05] backdrop-blur">
+          <div className="overflow-hidden rounded-3xl border border-accent/15 bg-accent/[0.08] backdrop-blur">
             <div className="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
               <div className="p-8 sm:p-10">
-                <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs font-semibold tracking-widest text-emerald-200 uppercase">
-                  <Lightbulb size={14} /> Sentari — Early stage · Solo founder
-                </div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-semibold tracking-widest text-accent uppercase">
+                   <Lightbulb size={14} /> Sentari — Early stage · Solo founder
+                 </div>
 
                 <h2 className="mt-6 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                   Civic safety as infrastructure.
@@ -74,7 +74,7 @@ export default function Sentari() {
                     {
                       n: "02",
                       t: "Triage with care",
-                      d: "AI-assisted intake (Groq / LLaMA 3.3) with human escalation.",
+                      d: "AI-assisted intake with human escalation.",
                     },
                     {
                       n: "03",
@@ -86,7 +86,7 @@ export default function Sentari() {
                       key={step.n}
                       className="flex gap-4 rounded-2xl border border-white/[0.06] bg-white/[0.03] p-4"
                     >
-                      <span className="text-xs font-bold tracking-widest text-emerald-300">{step.n}</span>
+                       <span className="text-xs font-bold tracking-widest text-accent">{step.n}</span>
                       <div>
                         <p className="text-sm font-semibold text-white">{step.t}</p>
                         <p className="mt-1 text-xs leading-5 text-white/50">{step.d}</p>
@@ -118,25 +118,25 @@ export default function Sentari() {
             <div className="grid gap-0 lg:grid-cols-[1.15fr_0.85fr]">
               <div className="p-6 sm:p-7 lg:p-8">
                 <div className="flex items-start justify-between gap-4">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/[0.06] border border-white/[0.06] text-emerald-300">
-                    <ShieldAlert size={20} />
-                  </div>
+                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/[0.06] border border-white/[0.06] text-accent">
+                     <ShieldAlert size={20} />
+                   </div>
                   <span className="inline-flex items-center rounded-full border bg-amber-400/15 text-amber-300 border-amber-400/20 px-2.5 py-1 text-xs font-medium">
                     In build — MVP
                   </span>
                 </div>
                 <div className="mt-4 flex items-center gap-2">
                   <Bus size={14} className="text-white/40" />
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300/70">
-                    SafeSignal — Nairobi–Kiambu corridors
+                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent/70">
+                     SafeSignal — Nairobi–Kiambu corridors
                   </p>
                 </div>
                 <h3 className="mt-2 text-xl font-bold tracking-tight text-white">
                   A Kenya-first safety signal for matatu &amp; boda passengers
                 </h3>
-                <p className="mt-2 text-sm font-medium italic text-emerald-200/70">
-                  &ldquo;Get discreet support during or after an unsafe matatu or boda incident. You
-                  decide what happens next.&rdquo;
+                 <p className="mt-2 text-sm font-medium italic text-accent/70">
+                   &ldquo;Get discreet support during or after an unsafe matatu or boda incident. You
+                   decide what happens next.&rdquo;
                 </p>
                 <p className="mt-3 text-sm leading-6 text-white/60">
                   Starting with Nairobi–Kiambu commuter corridors: a discreet first action when you
@@ -153,8 +153,8 @@ export default function Sentari() {
                       "You decide — no auto-escalation; you choose whether to share, report, or just get advice",
                     ].map((item) => (
                       <li key={item} className="flex gap-2.5 text-sm leading-6 text-white/70">
-                        <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-400/15">
-                          <Check size={12} className="text-emerald-300" />
+                         <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15">
+                           <Check size={12} className="text-accent" />
                         </span>
                         {item}
                       </li>
@@ -179,7 +179,7 @@ export default function Sentari() {
                   <p className="text-xs font-semibold uppercase tracking-widest text-white/30">Scope</p>
                   <div className="mt-4 space-y-3">
                     <div className="flex gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.03] p-4">
-                      <MapPin size={16} className="mt-0.5 shrink-0 text-emerald-300" />
+                       <MapPin size={16} className="mt-0.5 shrink-0 text-accent" />
                       <div>
                         <p className="text-sm font-semibold text-white">Nairobi–Kiambu first</p>
                         <p className="mt-1 text-xs leading-5 text-white/50">
@@ -188,7 +188,7 @@ export default function Sentari() {
                       </div>
                     </div>
                     <div className="flex gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.03] p-4">
-                      <Smartphone size={16} className="mt-0.5 shrink-0 text-emerald-300" />
+                       <Smartphone size={16} className="mt-0.5 shrink-0 text-accent" />
                       <div>
                         <p className="text-sm font-semibold text-white">No confrontation required</p>
                         <p className="mt-1 text-xs leading-5 text-white/50">
@@ -197,7 +197,7 @@ export default function Sentari() {
                       </div>
                     </div>
                     <div className="flex gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.03] p-4">
-                      <Hammer size={16} className="mt-0.5 shrink-0 text-emerald-300" />
+                       <Hammer size={16} className="mt-0.5 shrink-0 text-accent" />
                       <div>
                         <p className="text-sm font-semibold text-white">MVP in build</p>
                         <p className="mt-1 text-xs leading-5 text-white/50">
@@ -207,8 +207,8 @@ export default function Sentari() {
                     </div>
                   </div>
                 </div>
-                <div className="mt-6 rounded-2xl border border-emerald-400/10 bg-emerald-400/[0.06] px-4 py-3">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-emerald-300/70">Status</p>
+                 <div className="mt-6 rounded-2xl border border-accent/10 bg-accent/[0.06] px-4 py-3">
+                   <p className="text-xs font-semibold uppercase tracking-widest text-accent/70">Status</p>
                   <p className="mt-1.5 text-sm leading-6 text-white/70">
                     In build — MVP stage. Short, focused wedge before broader safety tooling.
                   </p>
